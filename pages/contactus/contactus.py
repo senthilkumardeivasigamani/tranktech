@@ -20,8 +20,8 @@ class contactus:
         self.serviceDropDown.select_option("Web Development")
         self.phone.fill('9597777461')
         self.message.fill('My Automation Scripts...')
-        self.page.wait_for_timeout(5000)
-    
+        self.page.wait_for_load_state("load")
+
     def countryDropDown(self):
         self.countryDropDownselect.select_option('India')
         self.page.wait_for_load_state(state="load")

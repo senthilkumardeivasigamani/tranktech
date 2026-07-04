@@ -28,7 +28,7 @@ class aboutus:
         aboutUsList=[self.cmsWebsite,self.customWebPortaDev,self.mobileAppDesign,self.responsiveWebDesig,self.brandIdentityDesign,self.iosAppDev,self.hybridMobileapp,self.crossPlatfromApp,self.progressiveWebApp,self.logodesign,self.bannerdesign,self.packgingDesign,self.cardDesign]
         for locator in aboutUsList:
             self.about.click()
-            self.page.wait_for_timeout(1000)
+            self.page.wait_for_load_state("load")
             locator.click()
             self.page.wait_for_load_state("load")
             self.page.go_back()
@@ -37,9 +37,9 @@ class aboutus:
     def aboutUsArrow(self):
         #self.website opening
         self.about.click()
-        self.page.wait_for_timeout(1000)
+        self.page.wait_for_load_state("load")
         self.arrow1.click()
-        self.page.wait_for_timeout(1000)
+        self.page.wait_for_load_state("load")
         self.website.click()
         new_page_event = self.page.context.wait_for_event("page")
         new_tab = new_page_event
@@ -48,7 +48,7 @@ class aboutus:
         
         #self.androidAppDev opening
         self.arrow2.click()
-        self.page.wait_for_timeout(1000)
+        self.page.wait_for_load_state("load")
         self.androidAppDev.click()
         new_page_event = self.page.context.wait_for_event("page")
         new_tab = new_page_event
@@ -61,4 +61,19 @@ class aboutus:
         new_tab = new_page_event
         new_tab.wait_for_load_state("load")
         new_tab.close()
+
+
+        '''this failing becaue i eas clickong only the first arrow and not the second arrow so the locators are not visible need to find a way to click the second arrow and then click the locators'''
+
+        # self.about.click()
+        # self.page.wait_for_load_state("load")
+        # self.arrow1.click()
+        # self.page.wait_for_load_state("load")        
+        # self.arrowDropDoenList=[self.website,self.androidAppDev,self.appDeve]
+        # for locator in self.arrowDropDoenList:
+        #     with self.page.context.expect_page() as new_page_info:
+        #         locator.click()
+        #     new_tab = new_page_info.value
+        #     new_tab.wait_for_load_state("load")
+        #     new_tab.close()
         
